@@ -18,12 +18,15 @@ var args = process.argv.slice(2);
 // var imagesURL = args.filter(arg => isURL(arg));
 
 var slient = args.includes("-s");
+var verbose = args.includes("-v");
 var imgLinks = args.filter((arg) => isImage(arg));
 if (imgLinks.length > 0) {
 	const newImages = imgLinks.map((img) => path.resolve(process.cwd(), img));
 
 	// Copy file and rename.
-	if (!slient) {
+	if (slient || verbose) {
+		// console.log("Silent or Varbose");
+	} else {
 		gulp.src(newImages)
 			.pipe(rename({ suffix: "---old" }))
 			.pipe(
@@ -56,7 +59,7 @@ if (imgLinks.length > 0) {
 		)
 		.pipe(
 			gulpif(
-				!slient,
+				!slient || verbose,
 				notify(function (file) {
 					return {
 						title: "ImageMinify",
