@@ -1,4 +1,4 @@
-# npm-imgmini
+# npm-imgmini-cli
 
 Image Minify with Gulp Image.
 
@@ -16,4 +16,8 @@ $ imgmini image.jpg image2.png
 #### Silent Mode
 ```console
 $ imgmini -s image.jpg image2.png
+```
+#### Alert Mode
+```console
+$ imgmini -v image.jpg image2.png
 ```
