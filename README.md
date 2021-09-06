@@ -1,4 +1,4 @@
-# npm-imgmini
+# npm-imgmini-cli
 
 Image Minify with Gulp Image.
 
